@@ -6,3 +6,4 @@ langchain-huggingface
 langchain-community
 sentence-transformers
 pinecone
+gunicorn

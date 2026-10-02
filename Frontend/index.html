@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="MediBot is a medical knowledge assistant that provides educational information from medical sources."
+    >
+
+    <title>MediBot | Medical Knowledge Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🩺
+                </div>
+
+                <div class="logo-text">
+                    <h1>MediBot</h1>
+                    <p>Medical Knowledge Assistant</p>
+                </div>
+
+            </div>
+
+            <div class="header-actions">
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span>AI Assistant</span>
+                </div>
+
+                <button
+                    class="header-button"
+                    id="theme-button"
+                    onclick="toggleTheme()"
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
+                <button
+                    class="header-button"
+                    id="accessibility-button"
+                    onclick="toggleAccessibility()"
+                    aria-label="Open accessibility options"
+                    title="Accessibility options"
+                >
+                    Aa
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ACCESSIBILITY PANEL -->
+        <div class="accessibility-panel" id="accessibility-panel">
+
+            <div class="panel-header">
+                <h3>Accessibility</h3>
+
+                <button
+                    onclick="toggleAccessibility()"
+                    aria-label="Close accessibility panel"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="accessibility-option">
+
+                <span>Font Size</span>
+
+                <div class="font-buttons">
+
+                    <button onclick="changeFontSize('small')">
+                        A
+                    </button>
+
+                    <button onclick="changeFontSize('normal')">
+                        A
+                    </button>
+
+                    <button onclick="changeFontSize('large')">
+                        A
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                class="contrast-button"
+                onclick="toggleHighContrast()"
+                id="contrast-button"
+            >
+                High Contrast Mode
+            </button>
+
+        </div>
+
+
+        <!-- CHAT AREA -->
+        <main class="chat-container" id="chat-container">
+
+            <!-- WELCOME -->
+            <section class="welcome-message" id="welcome-message">
+
+                <div class="welcome-icon">
+                    🩺
+                </div>
+
+                <div class="welcome-badge">
+                    MEDICAL KNOWLEDGE ASSISTANT
+                </div>
+
+                <h2>Hello! I'm MediBot</h2>
+
+                <p class="welcome-description">
+                    Ask a medical question and I'll search the
+                    available medical knowledge sources to provide
+                    an educational answer.
+                </p>
+
+
+                <!-- QUICK QUESTIONS -->
+                <div class="quick-section">
+
+                    <p class="quick-title">
+                        Try asking
+                    </p>
+
+                    <div class="suggestions">
+
+                        <button
+                            onclick="askSuggestion('What is knock knee?')"
+                        >
+                            🦵 What is knock knee?
+                        </button>
+
+                        <button
+                            onclick="askSuggestion('What is respiratory diseases?')"
+                        >
+                            🫁 What is respiratory diseases?
+                        </button>
+
+                        <button
+                            onclick="askSuggestion('What is dengue?')"
+                        >
+                            🦟 What is dengue?
+                        </button>
+
+                        <button
+                            onclick="askSuggestion('What is typhoid?')"
+                        >
+                            🩺 What is typhoid?
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MESSAGES -->
+            <div
+                id="chat-box"
+                aria-live="polite"
+                aria-label="Medical conversation"
+            ></div>
+
+
+        </main>
+
+
+        <!-- EMERGENCY NOTICE -->
+        <section class="emergency-section">
+
+            <div class="emergency-icon">
+                ⚠️
+            </div>
+
+            <div class="emergency-text">
+
+                <strong>Medical Emergency?</strong>
+
+                <span>
+                    If you are experiencing a serious or life-threatening
+                    emergency, seek immediate medical attention.
+                </span>
+
+            </div>
+
+            <a
+                href="tel:112"
+                class="emergency-button"
+            >
+                Call 112
+            </a>
+
+        </section>
+
+
+        <!-- INPUT AREA -->
+        <footer class="input-area">
+
+            <div class="input-container">
+
+                <button
+                    id="voice-button"
+                    class="input-button"
+                    onclick="startVoiceInput()"
+                    aria-label="Use voice input"
+                    title="Voice input"
+                >
+                    🎙️
+                </button>
+
+
+                <textarea
+                    id="question"
+                    placeholder="Ask a medical question..."
+                    rows="1"
+                    aria-label="Medical question"
+                ></textarea>
+
+
+                <button
+                    id="send-button"
+                    onclick="sendQuestion()"
+                    aria-label="Send question"
+                    title="Send question"
+                >
+                    ➤
+                </button>
+
+            </div>
+
+
+            <div class="input-tools">
+
+                <button
+                    onclick="clearChat()"
+                    class="text-button"
+                >
+                    Clear Chat
+                </button>
+
+                <button
+                    onclick="exportChat()"
+                    class="text-button"
+                >
+                    Export
+                </button>
+
+            </div>
+
+
+            <div class="privacy-notice">
+
+                <span>🔒</span>
+
+                <span>
+                    Avoid entering names, phone numbers, addresses,
+                    or other unnecessary personal information.
+                </span>
+
+            </div>
+
+
+            <p class="disclaimer">
+
+                <strong>Medical information notice:</strong>
+
+                MediBot is an educational tool and is not a substitute
+                for professional medical advice, diagnosis, or treatment.
+                For medical concerns, consult a qualified healthcare professional.
+
+            </p>
+
+        </footer>
+
+
+        <!-- FOOTER -->
+        <div class="app-footer">
+
+            <span>MediBot</span>
+
+            <span>•</span>
+
+            <span>Medical Knowledge Assistant</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@ medical questions using information from a medical knowledge base.
 
 ## Frontend Screenshot
 
-![MediBot Frontend](Medi_Screenshot.png)
+![MediBot Frontend](./MediBot_Screenshot.png)
 
 ## Technologies Used
 
